@@ -1,0 +1,30 @@
+// C++ code
+//
+
+float cahaya;
+int ldr = A5;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(3, OUTPUT);
+}
+
+void loop()
+{
+  
+  int input = analogRead(5);
+  int fr = map(input, 0, 1023, 0, 5000);
+  Serial.print("Frekuensi: ");
+  Serial.print(fr);
+  Serial.print("Hz");
+  
+  if(fr >= 500){
+    
+    tone(3, fr);
+  }else{
+  noTone(3);
+  }
+  delay(100);
+  
+}
